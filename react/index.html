@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Demandforce Review Widget Example</title>
+    <link type="text/css" rel="stylesheet" href="//www.demandforced3.com/d3cp/css/widget.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+      function App() {
+        window.d3cp_bid = '126000480';
+
+        React.useEffect(() => {
+          const script = document.createElement('script');
+
+          script.src = '//local.demandforce.com/b/abetterbacksolution/reviews.widget';
+
+          document.body.appendChild(script);
+
+          return () => {
+            document.body.removeChild(script);
+          }
+        }, []);
+
+        return (
+          <h1>Demandforce Review Widget Example</h1>
+        );
+      }
+
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<App />);
+    </script>
+  </body>
+</html>
